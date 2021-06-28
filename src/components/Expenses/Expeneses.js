@@ -6,9 +6,10 @@ function Expenses(props) {
   const expenses = props.expenses;
   let expenseList = [];
 
-  expenses.forEach((item) => {
+  expenses.forEach((item, i) => {
     expenseList.push(
       <ExpenseItem
+        key={i}
         title={item.title}
         amount={item.amount}
         date={item.date}
