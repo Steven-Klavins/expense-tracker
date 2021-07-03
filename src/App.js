@@ -1,7 +1,7 @@
 import './App.css';
 import Expenses from './components/Expenses/Expeneses'
 import NewExpense from "./components/NewExpense/NewExpense"
-import ExpensesFilter from "./components/Expenses/ExpensesFilter/ExpensesFilter"
+
 
 const expenses = [
   {
@@ -37,7 +37,6 @@ function App() {
   return (
     <div>
       <h2>Exspense Tracker</h2>
-      <ExpensesFilter/>
       <NewExpense onAddExpense = {addExpenseHandler} />
       <Expenses expenses = {expenses}/>
     </div>
