@@ -11,20 +11,6 @@ function Expenses(props) {
     setselectedYear(year);
   };
 
-  const expenses = props.expenses;
-  let expenseList = [];
-
-  expenses.forEach((item, i) => {
-    expenseList.push(
-      <ExpenseItem
-        key={i}
-        title={item.title}
-        amount={item.amount}
-        date={item.date}
-      ></ExpenseItem>
-    );
-  });
-
   return (
     <div>
       <Card className="expenses">
@@ -32,7 +18,13 @@ function Expenses(props) {
           onYearSelected={selectYearHandler}
           selected={selectedYear}
         />
-        {expenseList}
+        {props.expenses.map((expense) => (
+          <ExpenseItem
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
       </Card>
     </div>
   );
