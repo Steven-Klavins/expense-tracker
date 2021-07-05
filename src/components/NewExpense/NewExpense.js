@@ -7,8 +7,7 @@ function NewExpense(props) {
 
   const saveExpenseDataHandler = (enterExpenseData) => {
     const expenseData = {
-      ...enterExpenseData,
-      id: (uuidv4())
+      id: (uuidv4()), ...enterExpenseData 
     };
     props.onAddExpense(expenseData);
   };
