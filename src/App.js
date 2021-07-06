@@ -31,6 +31,7 @@ const DUMMY_EXPENSES = [
 
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  const [itemsSelectedByYear, setItemsSelectedByYear] = useState(DUMMY_EXPENSES);
 
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
@@ -40,11 +41,24 @@ function App() {
     });
   };
 
+  const selectedYearHandler = (year) => {
+    let newList = []
+    expenses.forEach((item) => {
+      if (item.date.toString().includes(year)){
+        newList.push(item);
+      } 
+    })
+    setItemsSelectedByYear(() => {
+      return newList
+    })
+   
+  }
+
   return (
     <div>
       <h2>Exspense Tracker</h2>
       <NewExpense onAddExpense = {addExpenseHandler} />
-      <Expenses expenses = {expenses}/>
+      <Expenses expenses = {itemsSelectedByYear} selectYearFilter = {selectedYearHandler}/>
     </div>
   );
 }
