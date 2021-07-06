@@ -8,7 +8,8 @@ function Expenses(props) {
   const [selectedYear, setselectedYear] = useState("2020");
 
   const selectYearHandler = (year) => {
-    setselectedYear(year);
+    props.selectYearFilter(year)
+    setselectedYear(year)
   };
 
   return (
