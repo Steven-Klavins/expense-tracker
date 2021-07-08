@@ -2,10 +2,10 @@ import ExpenseItem from "./ExpenseItem";
 import "./ExpensesList.css";
 
 function ExpensesList(props) {
-  let expenseContent = <p>No expenses found</p>;
+  let expenseContent = <p className="expenses-list__fallback">No expenses found</p>;
 
   if (props.expensesList.length === 0) {
-    return <h2 className="expenses-list__fallback">Found no expenses</h2>;
+    return expenseContent;
   }
 
   return (
